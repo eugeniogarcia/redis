@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: heroes
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000
+    cache-names:
+    - misHeroes
+  redis:
+    host: euge.redis.cache.windows.net
+    port: 6379  
+    password: wi162Z3sXzFQOdlzPjMfNPpGs+RNPSkromQ5o1WgEng=  
+   
+    
+server:
+  port: 8080
