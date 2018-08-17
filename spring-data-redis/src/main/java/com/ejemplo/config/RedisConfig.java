@@ -54,4 +54,34 @@ public class RedisConfig {
 		stringRedisTemplate.setEnableTransactionSupport(true);
 		return stringRedisTemplate;
 	}	
+
+	/*
+	@Autowired
+	LettuceConnectionFactory cf;
+
+
+	@Primary
+	@Bean
+	RedisTemplate< String, Object > redisTemplate() {
+		final miRedisTemplate< String, Object > template =  new miRedisTemplate< String, Object >();
+		template.setConnectionFactory( cf );
+		template.setKeySerializer( new StringRedisSerializer() );
+		template.setHashValueSerializer( new GenericToStringSerializer< Object >( Object.class ) );
+		template.setValueSerializer( new GenericToStringSerializer< Object >( Object.class ) );
+		return template;
+	}
+
+	@Primary
+	@Bean
+	RedisTemplate< Object, Object > redisObjectTemplate() {
+		final miRedisTemplate< Object, Object > template =  new miRedisTemplate< Object, Object >();
+		template.setConnectionFactory( cf );
+		template.setKeySerializer( new GenericToStringSerializer< Object >( Object.class ) );
+		template.setHashValueSerializer( new GenericToStringSerializer< Object >( Object.class ) );
+		template.setValueSerializer( new GenericToStringSerializer< Object >( Object.class ) );
+		return template;
+	}
+
+	 */
+
 }

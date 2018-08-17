@@ -11,7 +11,7 @@ spring:
     host: euge.redis.cache.windows.net
     port: 6379  
     password: wi162Z3sXzFQOdlzPjMfNPpGs+RNPSkromQ5o1WgEng=  
-   
+    timeout: 200
     
 server:
   port: 8080

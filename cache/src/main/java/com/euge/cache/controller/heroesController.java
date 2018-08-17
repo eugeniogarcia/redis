@@ -81,6 +81,7 @@ public class heroesController {
 	//
 	//
 
+	//Podemos poner la anotación aqui porque este metodo no retorna una EntityResponse
 	//Podemos usar mas de una cache
 	//Limpia caches
 	//@CacheEvict(value={"misHeroes1","misHeroes2"}, allEntries=true)
@@ -90,11 +91,13 @@ public class heroesController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	//Si puesieramos aqui la anotación @Cacheable fallaria, porque redis no puede serializar el EntityResponse
 	@RequestMapping(value = "/cache/heroes",produces = { "application/json" }, method = RequestMethod.GET)
 	public ResponseEntity<List<Hero>> getCachedHeroes(){
 		return new ResponseEntity<List<Hero>>(servicio.listCache(),HttpStatus.OK);
 	}
 
+	//Si puesieramos aqui la anotación @Cacheable fallaria, porque redis no puede serializar el EntityResponse
 	@RequestMapping(value = "/cache/heroes/{id}",produces = { "application/json" }, method = RequestMethod.GET)
 	public ResponseEntity<Hero> getCachedHero(@PathVariable("id") Integer id){
 		final Hero resp=servicio.findCache(id);
@@ -111,6 +114,7 @@ public class heroesController {
 		return addHero(hero);
 	}
 
+	//Si puesieramos aqui la anotación @Cacheable fallaria, porque redis no puede serializar el EntityResponse
 	@RequestMapping(value = "/cache/heroes",produces = { "application/json" }, method = RequestMethod.PUT)
 	public ResponseEntity<Hero> updateCachedHero(@RequestBody Hero hero){
 		if(servicio.updateCache(hero)!=null) {
